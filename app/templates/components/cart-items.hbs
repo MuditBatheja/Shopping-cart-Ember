@@ -1,0 +1,44 @@
+<section class="modal-content">
+    <a {{action toggleModal false}} class="pull-right">
+        <span class="glyphicon glyphicon-remove"></span>
+    </a>
+    <div class="container-fluid wrapper">
+        <h2 class="product__heading">Shopping cart</h2>
+        <div class="product__item-group">
+            <div class=" row justify-content-between">
+                <div class="col-xs-12">
+                    {{#if products.length}}
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each products as |product|}}
+                                <tr>
+                                    <td><img class='cart-img' src="{{product.productImage}}">
+                                    </td>
+                                    <td>{{product.productName}}</td>
+                                    <td>{{product.price}}</td>
+                                    <td><a {{action addOrRemove product 'remove'}}>
+                                            <span class="glyphicon glyphicon-trash"></span></a>
+                                    </td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                    {{else}}
+                    <h3>No items in cart</h3>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
