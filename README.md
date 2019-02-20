@@ -11,9 +11,8 @@ Shopping cart application- Ember JS
 You will need the following things properly installed on your computer.
 
 * [Git](http://git-scm.com/)
-* [Node.js](http://nodejs.org/) (with NPM)
-* [Ember CLI](http://www.ember-cli.com/)
-* [PhantomJS](http://phantomjs.org/)
+* [Node.js](http://nodejs.org/) (with NPM) version: v10.15.1
+* [Ember CLI](http://www.ember-cli.com/) version: 3.7.1
 
 ## Installation
 
