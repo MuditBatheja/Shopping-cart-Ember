@@ -9,18 +9,18 @@ module('Integration | Component | available-items', function(hooks) {
   test('it renders', async function(assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
+    this.set('products', []);
+    await render(hbs`{{available-items products= products}}`);
 
-    await render(hbs`{{available-items}}`);
-
-    assert.equal(this.element.textContent.trim(), '');
+    assert.equal(this.element.textContent.trim(), 'Featured Products');
 
     // Template block usage:
+    this.set('products', []);
     await render(hbs`
-      {{#available-items}}
-        template block text
+      {{#available-items products= products}}
       {{/available-items}}
     `);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.equal(this.element.textContent.trim(), 'Featured Products');
   });
 });

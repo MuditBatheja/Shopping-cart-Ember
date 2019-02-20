@@ -2,7 +2,7 @@ import Controller from '@ember/controller';
 import products from '../data/products'
 
 export default Controller.extend({
-  
+  showModal:false,
   init() {
     this._super();
     this.set('availableProducts', products);

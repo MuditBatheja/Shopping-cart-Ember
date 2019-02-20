@@ -1,28 +1,27 @@
-<a {{action 'toggleModal' true}} class='cart-icon'>
-  {{if addedProducts.length addedProducts.length}}  <span class="glyphicon glyphicon-shopping-cart"></span></a>
-<div class="wrapper--site">
-	
-	<main>
-		<section class="product" id="product">
-			<div class="container-fluid wrapper">
-				<h2 class="product__heading">Featured Products</h2>
-				{{available-items
-          products=availableProducts
-          addOrRemove=(action 'addOrRemove')
-        }}
-			</div>
-		</section>
-
-	</main>
-  
+<div>
+  <a href="javascript:void(0);" class="cart-icon" {{action "toggleModal" true}}>
+    {{if addedProducts.length addedProducts.length}} <span class="glyphicon glyphicon-shopping-cart"></span>
+  </a>
+  <div class="wrapper--site">
+    <main>
+      <section class="product" id="product">
+        <div class="container-fluid wrapper">
+          {{available-items
+            products=availableProducts
+            addOrRemove=(action "addOrRemove")
+          }}
+        </div>
+      </section>
+    </main>
+  </div>
+  {{#if showModal}}
+    <div class="modal-view">
+      {{cart-items
+        products=addedProducts
+        addOrRemove=(action "addOrRemove")
+        toggleModal=(action "toggleModal")
+      }}
+    </div>
+  {{/if}}
 </div>
-{{#if showModal}}
-<div class="modal-view">
-  {{cart-items
-    products=addedProducts
-    addOrRemove=(action 'addOrRemove')
-    toggleModal=(action 'toggleModal')
-  }}
-</div>
-{{/if}}
 {{outlet}}
